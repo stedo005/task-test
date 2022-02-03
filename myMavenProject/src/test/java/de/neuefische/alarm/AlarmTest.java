@@ -3,7 +3,6 @@ package de.neuefische.alarm;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AlarmTest {
 
@@ -45,7 +44,7 @@ class AlarmTest {
 
     @Test
     void testUnknownAlarmLevel() {
-        assertThrows(IllegalArgumentException.class, () -> Alarm.checkNumberOfCustomers(100, "unknown"));
+        assertEquals("unknown alarm level", Alarm.checkNumberOfCustomers(100, "unknown"));
     }
 
 }

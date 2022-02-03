@@ -14,7 +14,7 @@ public class Alarm {
             case "grün":
                 return checkCustomers(numberOfCustomers, 60);
             default:
-                throw new IllegalArgumentException();
+                return "unknown alarm level";
         }
     }
 
