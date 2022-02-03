@@ -2,23 +2,50 @@ package de.neuefische.alarm;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AlarmTest {
 
     @Test
-    void shouldWarnBecauseTooManyPeopleAreInTheStore() {
-        assertEquals("Zu viele Personen", Alarm.check(31));
+    void testThatNumberOfPeopleIsNotYetReached_yellow() {
+        assertEquals("Maximale Personenzahl nicht überschritten", Alarm.checkNumberOfCustomers(15, "gelb"));
     }
 
     @Test
-    void shouldNotWarnBecauseThereAre30PeopleInTheStore() {
-        assertEquals("Maximale Personenanzahl nicht überschritten", Alarm.check(30));
+    void testThatNumberOfPeopleIsIsExactlyReached_yellow() {
+        assertEquals("Maximale Personenzahl nicht überschritten", Alarm.checkNumberOfCustomers(30, "gelb"));
     }
 
     @Test
-    void shouldNotWarnBecauseThereAreLessThan30PeopleInTheStore() {
-        assertEquals("Maximale Personenanzahl nicht überschritten", Alarm.check(15));
+    void testThatNumberOfPeopleIsIsTooHigh_yellow() {
+        assertEquals("Zu viele Personen", Alarm.checkNumberOfCustomers(31, "gelb"));
+    }
+
+    @Test
+    void testThatNumberOfPeopleIsNotYetReached_green() {
+        assertEquals("Maximale Personenzahl nicht überschritten", Alarm.checkNumberOfCustomers(45, "grün"));
+    }
+
+    @Test
+    void testThatNumberOfPeopleIsIsExactlyReached_green() {
+        assertEquals("Maximale Personenzahl nicht überschritten", Alarm.checkNumberOfCustomers(60, "grün"));
+    }
+
+    @Test
+    void testThatNumberOfPeopleIsIsTooHigh_green() {
+        assertEquals("Zu viele Personen", Alarm.checkNumberOfCustomers(61, "grün"));
+    }
+
+    @Test
+    void testThatNoOneIsAllowedWhenAlarmLevelIsRed() {
+        assertEquals("Zu viele Personen", Alarm.checkNumberOfCustomers(1, "rot"));
+        assertEquals("Maximale Personenzahl nicht überschritten", Alarm.checkNumberOfCustomers(0, "rot"));
+    }
+
+    @Test
+    void testUnknownAlarmLevel() {
+        assertThrows(IllegalArgumentException.class, () -> Alarm.checkNumberOfCustomers(100, "unknown"));
     }
 
 }
