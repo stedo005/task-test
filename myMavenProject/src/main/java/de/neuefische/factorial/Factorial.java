@@ -10,4 +10,13 @@ public class Factorial {
         return result;
     }
 
+    public static int facWhile(int input) {
+        int result = 1;
+        while (input > 0) {
+            result *= input;
+            --input;
+        }
+        return result;
+    }
+
 }
