@@ -27,4 +27,23 @@ class StudentTest {
         assertEquals(5, student.getSemester());
     }
 
+    @Test
+    void testConstructor() {
+        var student = new Student("André", "Schreck", 11);
+
+        assertEquals("André", student.getFirstName());
+        assertEquals("Schreck", student.getLastName());
+        assertEquals(11, student.getSemester());
+    }
+
+    @Test
+    void testCopy() {
+        var student = new Student("André", "Schreck", 11);
+        var result = new Student(student);
+
+        assertEquals("André", result.getFirstName());
+        assertEquals("Schreck", result.getLastName());
+        assertEquals(11, result.getSemester());
+    }
+
 }
