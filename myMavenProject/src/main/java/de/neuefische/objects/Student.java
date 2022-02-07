@@ -1,5 +1,7 @@
 package de.neuefische.objects;
 
+import java.util.Objects;
+
 public class Student {
 
     private String firstName;
@@ -42,5 +44,27 @@ public class Student {
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", semester=" + semester +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return semester == student.semester && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, semester);
     }
 }
