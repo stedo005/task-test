@@ -46,4 +46,14 @@ class StudentTest {
         assertEquals(11, result.getSemester());
     }
 
+    @Test
+    void testEquals() {
+        var student = new Student();
+        student.setLastName("Schreck");
+        student.setFirstName("André");
+        student.setSemester(11);
+
+        assertEquals(new Student("André", "Schreck", 11), student);
+    }
+
 }
