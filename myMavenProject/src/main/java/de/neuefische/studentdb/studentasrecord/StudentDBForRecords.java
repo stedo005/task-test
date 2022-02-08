@@ -1,12 +1,12 @@
-package de.neuefische.studentdb;
+package de.neuefische.studentdb.studentasrecord;
 
 import java.util.Arrays;
 
-public class StudentDB {
+public class StudentDBForRecords {
 
     private Student[] students;
 
-    public StudentDB(Student[] inseredStudents) {
+    public StudentDBForRecords(Student[] inseredStudents) {
         this.students = inseredStudents;
     }
 
