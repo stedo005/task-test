@@ -1,4 +1,4 @@
-package de.neuefische.studentdb;
+package de.neuefische.studentdb.studentasclass;
 
 import java.util.Objects;
 
@@ -37,4 +37,5 @@ public class Student {
     public String toString() {
         return "{id: " + id + ", name: " + name + "}";
     }
+
 }
