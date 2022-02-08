@@ -2,7 +2,7 @@ package de.neuefische.inheritence;
 
 import java.util.Objects;
 
-public class Student {
+public abstract class Student {
 
     private final int id;
     private final String name;
@@ -19,6 +19,8 @@ public class Student {
     public String getName() {
         return name;
     }
+
+    public abstract String getSubject();
 
     @Override
     public boolean equals(Object o) {

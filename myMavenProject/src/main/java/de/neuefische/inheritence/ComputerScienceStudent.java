@@ -6,4 +6,9 @@ public class ComputerScienceStudent extends Student {
         super(id, name);
     }
 
+    @Override
+    public String getSubject() {
+        return "Computer science";
+    }
+
 }
