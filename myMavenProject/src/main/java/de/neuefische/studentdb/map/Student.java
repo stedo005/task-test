@@ -16,10 +16,6 @@ public class Student {
         this.age = age;
     }
 
-    public Student() {
-        this("", "", 0);
-    }
-
     public String getId() {
         return id;
     }
