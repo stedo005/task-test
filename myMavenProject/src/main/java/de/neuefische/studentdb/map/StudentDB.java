@@ -12,11 +12,9 @@ public class StudentDB {
     private final Map<String, Student> students = new HashMap<>();
 
     public StudentDB(List<Student> students) {
-        this.students.putAll(
-                students
-                        .stream()
-                        .collect(Collectors.toMap(Student::getId, Function.identity()))
-        );
+        for (Student student : students) {
+            students.put(student.getId(), student);
+        }
     }
 
     public List<Student> list() {
