@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class StudentDB {
 
@@ -13,7 +11,7 @@ public class StudentDB {
 
     public StudentDB(List<Student> students) {
         for (Student student : students) {
-            students.put(student.getId(), student);
+            this.students.put(student.getId(), student);
         }
     }
 
